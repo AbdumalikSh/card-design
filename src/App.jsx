@@ -10,7 +10,8 @@ function App() {
   const [color, setColor] = useState('#000');
   const [text, setText] = useState('');
   const [image, setImage] = useState();
-  
+  const [type, setType] = useState()
+
   const changeColor = (event) => {
     setColor(event.target.value)
   }
@@ -24,10 +25,10 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{color, text, image, changeColor, changeText, imageClick}}>
+    <Context.Provider value={{color, text, image, type, changeColor, changeText, imageClick}}>
       <>
-        <Input type = 'color' value = {color} onChange = {changeColor}/>
-        <Input value = {text} onChange = {changeText}/>
+        <Input type = 'color'/>
+        <Input type = 'text'/>
         <ImgGallery /> 
         <Card />  
       </>

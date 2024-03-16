@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import styles from './card.module.css'
 import { Context } from '../App';
-import Img from './Img';
 
 const Card = () => {
     const {color, text, image} = useContext(Context)

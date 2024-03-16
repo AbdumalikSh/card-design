@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../App';
 
-function Input(props) {
-    if (props.type === 'color'){
-        return <input type = 'color' value = {props.value} onChange={props.onChange} />  
+
+function Input({type}) {
+    const {color, text, changeColor, changeText} = useContext(Context)
+    if (type === 'color'){
+        return <input type = 'color' value = {color} onChange={changeColor} />  
     } else {
-        return <input type='text' value = {props.value} onChange={props.onChange} />   
+        return <input type = 'text' value = {text} onChange={changeText} />   
     }
 }
 
