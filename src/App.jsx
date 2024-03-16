@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css'
 import ImgGallery from './Components/ImgGallery';
 import Input from './Components/Input';
 import Card from './Components/Card';
+
+export const Context = createContext();
 
 function App() {
   const [color, setColor] = useState('#000');
@@ -17,18 +19,19 @@ function App() {
     setText(event.target.value)
   }
   
-  const imageClick = (event, src) => {
+  const imageClick = (event) => {
     setImage(event.target.src)
-    console.log(event.target.src);
   }
 
   return (
-    <>
-      <Input type = 'color' value = {color} onChange = {changeColor}/>
-      <Input value = {text} onChange = {changeText} />
-      <ImgGallery onClick = {imageClick}/> 
-      <Card name = {text} style = {{ backgroundColor: color }} src = {image}/>  
-    </>
+    <Context.Provider value={{color, text, image, changeColor, changeText, imageClick}}>
+      <>
+        <Input type = 'color' value = {color} onChange = {changeColor}/>
+        <Input value = {text} onChange = {changeText}/>
+        <ImgGallery /> 
+        <Card />  
+      </>
+    </Context.Provider>
   )
 }
 

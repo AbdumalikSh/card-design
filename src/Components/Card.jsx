@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './card.module.css'
+import { Context } from '../App';
+import Img from './Img';
 
-function Card (props) {
+const Card = () => {
+    const {color, text, image} = useContext(Context)
     return (
         <>
-            <div className = {styles.card} style={props.style}>
-                <img src={props.src} className={styles.img}/>
-                <h1 className={styles.name}>{props.name}</h1>
+            <div className = {styles.card} style={{backgroundColor: color}}>
+                <img src={image} className={styles.img}/>
+                <h1 className={styles.name}>{text}</h1>
             </div>
         </>
     )

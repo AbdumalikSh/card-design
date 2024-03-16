@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './img.module.css'
+import { Context } from '../App';
 
-function Img(props) {
+const Img = ({src}) => {
+    const {imageClick} = useContext(Context)
     return (
         <>
-            <img src={props.src} className={styles.img} onClick={props.onClick}/>
+            <img src={src} className={styles.img} onClick={imageClick}/>
         </>
     )
 }
