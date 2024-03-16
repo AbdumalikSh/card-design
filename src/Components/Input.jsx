@@ -3,10 +3,12 @@ import { Context } from '../App';
 
 
 function Input() {
-    const {color, text, changeColor, changeText} = useContext(Context)
+    const {state, setState} = useContext(Context)
+    const {color, text} = state;
+    
         return <>
-            <input type = 'color' value = {color} onChange={changeColor} />  
-            <input type = 'text' value = {text} onChange={changeText} />   
+            <input type = 'color' value = {color} onChange={(e) => setState({...state, color: e.target.value})} />  
+            <input type = 'text' value = {text} onChange={(e) => setState({...state, text: e.target.value})} />   
         </>
 }
 

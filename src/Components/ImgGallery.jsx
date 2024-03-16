@@ -5,9 +5,11 @@ import ImgSrc from './ImgSrc'
 import { Context } from '../App';
 
 const ImgGallery = () => {
-    const {imageClick} = useContext(Context)
+    const {state, setState} = useContext(Context)
+    
+
     const images = ImgSrc.map((img, index) => {
-        return <Img key = {index} src = {img} onClick = {imageClick}/>
+        return <Img key = {index} src = {img} onClick = {e => setState({...state, image: e.target.src})}/>
     })
     return (
         <>

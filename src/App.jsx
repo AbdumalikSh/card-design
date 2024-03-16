@@ -6,25 +6,18 @@ import Card from './Components/Card';
 
 export const Context = createContext();
 
-function App() {
-  const [color, setColor] = useState('#000');
-  const [text, setText] = useState('');
-  const [image, setImage] = useState();
+const initialState = {
+  color: '#000',
+  text: "",
+  image: '',
+}
 
-  const changeColor = (event) => {
-    setColor(event.target.value)
-  }
-  
-  const changeText = (event) => {
-    setText(event.target.value)
-  }
-  
-  const imageClick = (event) => {
-    setImage(event.target.src)
-  }
+function App() {
+  const [state, setState] = useState(initialState);
+
 
   return (
-    <Context.Provider value={{color, text, image, changeColor, changeText, imageClick}}>
+    <Context.Provider value={{state, setState}}>
       <>
         <Input />
         <ImgGallery /> 

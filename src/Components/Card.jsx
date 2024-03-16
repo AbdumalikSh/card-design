@@ -3,7 +3,8 @@ import styles from './card.module.css'
 import { Context } from '../App';
 
 const Card = () => {
-    const {color, text, image} = useContext(Context)
+    const {state} = useContext(Context)
+    const {color, text, image} = state;
     return (
         <>
             <div className = {styles.card} style={{backgroundColor: color}}>
